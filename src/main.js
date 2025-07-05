@@ -176,7 +176,10 @@ function initializeHours() {
       const openNowSpan = document.createElement('span');
       openNowSpan.className = 'open-now';
       openNowSpan.textContent = 'Open now';
-      currentDayElement.appendChild(openNowSpan);
+      const dayTimeContainer = currentDayElement.querySelector('.day-time');
+      if (dayTimeContainer) {
+        dayTimeContainer.appendChild(openNowSpan);
+      }
     }
   }
   
