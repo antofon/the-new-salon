@@ -386,6 +386,32 @@ p {
   margin: 0 auto;
 }
 
+.instagram-cta {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.instagram-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+  color: var(--white);
+  text-decoration: none;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.instagram-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  filter: brightness(1.1);
+}
+
 /* Pricing Section */
 .pricing {
   padding: var(--spacing-xxl) var(--spacing-md);
