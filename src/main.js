@@ -116,5 +116,79 @@ window.addEventListener('load', () => {
   document.body.classList.add('loaded');
 });
 
+// Hours toggle functionality
+let hoursExpanded = false;
+
+function toggleHours() {
+  const hoursList = document.querySelector('.hours-list');
+  const toggleButton = document.querySelector('.hours-toggle');
+  
+  if (!hoursExpanded) {
+    hoursList.classList.remove('hours-collapsed');
+    toggleButton.textContent = 'Show less';
+    hoursExpanded = true;
+  } else {
+    hoursList.classList.add('hours-collapsed');
+    toggleButton.textContent = 'Show all hours';
+    hoursExpanded = false;
+  }
+}
+
+// Make toggleHours globally available
+window.toggleHours = toggleHours;
+
+// Initialize hours display based on current day
+function initializeHours() {
+  const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  const currentDay = days[new Date().getDay()];
+  
+  // Business hours for each day (24-hour format)
+  const businessHours = {
+    'monday': { open: 8, close: 17 },
+    'tuesday': { open: 8, close: 19 },
+    'wednesday': { open: 8, close: 19 },
+    'thursday': { open: 8, close: 19 },
+    'friday': { open: 8, close: 19 },
+    'saturday': { open: 8, close: 17 },
+    'sunday': { open: 8, close: 17 }
+  };
+  
+  // Remove current-day class and open-now spans from all days
+  document.querySelectorAll('.hours-day').forEach(day => {
+    day.classList.remove('current-day');
+    const openNow = day.querySelector('.open-now');
+    if (openNow) {
+      openNow.remove();
+    }
+  });
+  
+  // Add current-day class to the actual current day
+  const currentDayElement = document.querySelector(`[data-day="${currentDay}"]`);
+  if (currentDayElement) {
+    currentDayElement.classList.add('current-day');
+    
+    // Check if currently open
+    const now = new Date();
+    const currentHour = now.getHours();
+    const todayHours = businessHours[currentDay];
+    
+    if (currentHour >= todayHours.open && currentHour < todayHours.close) {
+      const openNowSpan = document.createElement('span');
+      openNowSpan.className = 'open-now';
+      openNowSpan.textContent = 'Open now';
+      currentDayElement.appendChild(openNowSpan);
+    }
+  }
+  
+  // Start with collapsed view
+  const hoursList = document.querySelector('.hours-list');
+  if (hoursList) {
+    hoursList.classList.add('hours-collapsed');
+  }
+}
+
+// Initialize hours when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeHours);
+
 // Console welcome message
 console.log('Welcome to Kru Salon! 💄✨');
