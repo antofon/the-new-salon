@@ -190,12 +190,17 @@ function initializeHoursC2() {
 }
 
 // Initialize hours when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeHoursC2);
+document.addEventListener('DOMContentLoaded', function() {
+  initializeHoursC2();
+  
+  // Set current year in footer
+  const currentYearElement = document.getElementById('current-year-c2');
+  if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+  }
+});
 
 // Add loading animation
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
 });
-
-// Console welcome message
-console.log('Welcome to Kru Salon - Concept 2! 🌟✨'); 

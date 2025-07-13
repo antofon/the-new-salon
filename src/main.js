@@ -191,7 +191,12 @@ function initializeHours() {
 }
 
 // Initialize hours when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeHours);
-
-// Console welcome message
-console.log('Welcome to Kru Salon! 💄✨');
+document.addEventListener('DOMContentLoaded', function() {
+  initializeHours();
+  
+  // Set current year in footer
+  const currentYearElement = document.getElementById('current-year');
+  if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+  }
+});
