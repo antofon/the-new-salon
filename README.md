@@ -1,6 +1,6 @@
-# Kru Salon Website
+# The New Salon Website
 
-A modern, responsive website for Kru Salon - a luxury hair and nail care service provider.
+A modern, responsive website for The New Salon - a luxury hair and nail care service provider.
 
 ## Features
 
@@ -54,7 +54,7 @@ A modern, responsive website for Kru Salon - a luxury hair and nail care service
 1. Clone the repository
 ```bash
 git clone <repository-url>
-cd kru-salon-website
+cd the-new-salon
 ```
 
 2. Install dependencies
@@ -86,7 +86,7 @@ npm run preview
 ## Project Structure
 
 ```
-kru-salon-website/
+the-new-salon/
 ├── public/
 │   └── favicon.svg
 ├── src/
@@ -144,4 +144,4 @@ For questions about this project, please contact the development team.
 
 ---
 
-Built with ❤️ for Kru Salon 
+Built with ❤️ for The New Salon 

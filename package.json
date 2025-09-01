@@ -1,9 +1,9 @@
 {
-  "name": "kru-salon-website",
+  "name": "the-new-salon-website",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Kru Salon - Luxury Hair & Nail Care Website",
+  "description": "The New Salon - Luxury Hair & Nail Care Website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
